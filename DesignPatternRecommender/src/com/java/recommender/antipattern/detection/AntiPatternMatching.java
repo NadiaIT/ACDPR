@@ -17,16 +17,13 @@ public abstract class AntiPatternMatching {
 	public double[] weights;
 
 	public AntiPatternMatching(AntiPattern antiPattern,
-			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric) {
+			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric,double[] weights) {
 		this.system = structuralMetric.matrix;
 		this.antiPattern = antiPattern;
 		this.structuralMetric = structuralMetric;
 		this.behavioralMetric = behavioralMetric;
 		scores = new double[3];
-		weights = new double[3];
-		weights[0] = 1;
-		weights[1] = 2;
-		weights[2] = 4;
+		this.weights = weights;
 	}
 
 	public abstract boolean match();

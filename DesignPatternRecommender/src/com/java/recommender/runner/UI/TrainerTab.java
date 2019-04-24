@@ -36,7 +36,6 @@ public class TrainerTab extends JPanel {
 				"Select Train Data Path");
 		antipatterndirectorychoser.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser chooser = new JFileChooser();
 				chooser.setCurrentDirectory(new java.io.File(
@@ -58,7 +57,6 @@ public class TrainerTab extends JPanel {
 		train.setEnabled(false);
 		train.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				XMLReader xmlReader = new XMLReader(trainPath);
 				AntiPattern antiPattern = new AntiPattern();
@@ -81,7 +79,6 @@ public class TrainerTab extends JPanel {
 		JButton reset = new JButton("Reset Trainings");
 		reset.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				AntipatternTrainResource antipatternTrainResource = new AntipatternTrainResource();
 				antipatternTrainResource.resetResource();

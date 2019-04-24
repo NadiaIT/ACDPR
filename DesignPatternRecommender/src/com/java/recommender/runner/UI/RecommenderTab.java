@@ -44,7 +44,6 @@ public class RecommenderTab extends JPanel {
 
 		projectChoser.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				suggession.setText("");
 				JFileChooser chooser = new JFileChooser();
@@ -66,7 +65,6 @@ public class RecommenderTab extends JPanel {
 		recommend = new JButton("Recommend");
 		recommend.setEnabled(false);
 		recommend.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				suggession.setText("");
 				loader.setVisible(true);
@@ -95,8 +93,12 @@ public class RecommenderTab extends JPanel {
 						AntipatternTrainResource antipatternTrainResource = new AntipatternTrainResource();
 						AntiPattern antiPattern = antipatternTrainResource
 								.readResource();
+						double[] weights = new double[3];
+						weights[0]=1;
+						weights[0]=2;
+						weights[0]=4;
 						AntiPatternMatching matching = new AntiPatternMatchingAF(
-								antiPattern, systemStructure, behavioralMetric);
+								antiPattern, systemStructure, behavioralMetric, weights);
 						if (matching.match()) {
 							suggession
 									.setText("Abstract Factory is Recommended");

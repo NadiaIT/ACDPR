@@ -9,8 +9,8 @@ import com.java.recommender.structures.StructuralMetric;
 public class AntiPatternMatchingAF extends AntiPatternMatching {
 
 	public AntiPatternMatchingAF(AntiPattern antiPattern,
-			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric) {
-		super(antiPattern, structuralMetric, behavioralMetric);
+			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric, double[] weights) {
+		super(antiPattern, structuralMetric, behavioralMetric, weights);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -42,7 +42,10 @@ public class AntiPatternMatchingAF extends AntiPatternMatching {
 		} else
 			scores[2] = 1;
 		System.out.println("AF sem=" + scores[2]);
-		return true;
+		if (scores[0]==1 && scores [1]==1 && scores[2]==1) {
+			return true;
+		}
+		else return false;
 	}
 
 }

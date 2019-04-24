@@ -12,8 +12,8 @@ public class AntiPatternMatchingPrototype extends AntiPatternMatching {
 	public ArrayList<String> prototypeClasses;
 
 	public AntiPatternMatchingPrototype(AntiPattern antiPattern,
-			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric) {
-		super(antiPattern, structuralMetric, behavioralMetric);
+			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric, double[] weights) {
+		super(antiPattern, structuralMetric, behavioralMetric, weights);
 	}
 
 	@Override
@@ -46,6 +46,9 @@ public class AntiPatternMatchingPrototype extends AntiPatternMatching {
 		// if (semanticMatchCount == 0)
 		// return false;
 		weights[2] = 0;
-		return true;
+		if (scores[0]==1 && scores [1]==1) {
+			return true;
+		}
+		else return false;
 	}
 }

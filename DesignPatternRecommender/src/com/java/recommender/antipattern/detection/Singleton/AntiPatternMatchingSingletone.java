@@ -14,8 +14,8 @@ public class AntiPatternMatchingSingletone extends AntiPatternMatching {
 	public ArrayList<String> singletoneClasses;
 
 	public AntiPatternMatchingSingletone(AntiPattern antiPattern,
-			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric) {
-		super(antiPattern, structuralMetric, behavioralMetric);
+			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric, double[] weights) {
+		super(antiPattern, structuralMetric, behavioralMetric, weights);
 		activityDiagramAnalyzer = new ActivityDiagramAnalyzer();
 	}
 
@@ -46,7 +46,10 @@ public class AntiPatternMatchingSingletone extends AntiPatternMatching {
 		} else
 			scores[2] = 1;
 		System.out.println("S sem=" + scores[2]);
-		return true;
+		if (scores [1]==1 && scores[2]==1) {
+			return true;
+		}
+		else return false;
 	}
 
 }

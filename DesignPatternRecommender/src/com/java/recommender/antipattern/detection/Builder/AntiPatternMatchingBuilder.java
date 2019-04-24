@@ -12,8 +12,8 @@ public class AntiPatternMatchingBuilder extends AntiPatternMatching {
 	public ArrayList<String> builderClasses;
 
 	public AntiPatternMatchingBuilder(AntiPattern antiPattern,
-			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric) {
-		super(antiPattern, structuralMetric, behavioralMetric);
+			StructuralMetric structuralMetric, BehavioralMetric behavioralMetric, double[] weights) {
+		super(antiPattern, structuralMetric, behavioralMetric, weights);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -41,7 +41,10 @@ public class AntiPatternMatchingBuilder extends AntiPatternMatching {
 			scores[1] = 1;
 		System.out.println("B beh=" + scores[1]);
 		weights[2] = 0;
-		return true;
+		if (scores[0]==1 && scores [1]==1) {
+			return true;
+		}
+		else return false;
 	}
 
 }
